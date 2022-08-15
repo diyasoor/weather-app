@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>headerLinks}}
+</head>
+<body>
+    {{!-- Navbar --}}
+    {{>navbar}}
+    
+    <!-- main header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_div">
+                    <form class="weather-form">
+                        <input type="text" id="cityName" placeholder="Enter City Name" autocomplete="off">
+                        <input type="submit" value="SEARCH" id="submitBtn">
+                    </form>
+                </div>
+
+                <div class="temperature-info">
+                    <div class="first-part">
+                        <p id="day-name">Sunday</p>
+                        <p id="date">14 AUG</p>
+                    </div>
+                    <div class="second-part">
+                        <p id="city-name">Weather Updates 🙂</p>
+                        <div class="sub-part data-hide">
+                            <p id="celcius"><span id="temp-val">22</span><sup>o</sup>C</p>
+                            <p id="temp-icon"><i class="fa fa-cloud"></i></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    {{>footer}}
+
+    {{!-- Script For API Access --}}
+    <script src="js/main.js"></script>
+
+    {{!-- Script For Day Date Month Access--}}
+    <script>
+        const day = document.getElementById('day-name');
+        const getCurrentDay = () => {
+            var weekday = new Array(7);
+            weekday[0] = "SUN";
+            weekday[1] = "MON";
+            weekday[2] = "TUE";
+            weekday[3] = "WED";
+            weekday[4] = "THU";
+            weekday[5] = "FRI";
+            weekday[6] = "SAT";
+
+            let currentTime = new Date();
+            let day = weekday[currentTime.getDay()];
+            return day;
+        };
+        day.innerText = getCurrentDay();
+        
+        var months = [
+            "JAN",
+            "FEB",
+            "MAR",
+            "APR",
+            "MAY",
+            "JUN",
+            "JUL",
+            'AUG',
+            "SEP",
+            "OCT",
+            "NOV",
+            "DEC"
+        ];
+        const dateMonth = document.getElementById('date')
+        const today = new Date();
+        const date = today.getDate();
+        const month = months[today.getMonth()];
+
+        dateMonth.innerText = `${date} ${month}`;
+    </script>
+</body>
+</html>
