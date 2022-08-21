@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     {{>headerLinks}}
 </head>
 <body>
@@ -11,27 +12,136 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 col-12 mx-auto">
-                <div class="main_div">
-                    <form class="weather-form">
-                        <input type="text" id="cityName" placeholder="Enter City Name" autocomplete="off">
-                        <input type="submit" value="SEARCH" id="submitBtn">
-                    </form>
+                <div id="indexPageTime">
+                  <i class="uil uil-clock"></i>
+                  <p id="currentTime"></p>
                 </div>
-
-                <div class="temperature-info">
-                    <div class="first-part">
-                        <p id="day-name">Sunday</p>
-                        <p id="date">14 AUG</p>
+                <div class="row weather-left-right">
+                    <!-- left div -->
+                    <div class="col-md-6 col-12 weather-left">
+                        <div class="main_div">
+                            <form class="weather-form">
+                                <input type="text" id="cityName" placeholder="enter city name..." autocomplete="off" >
+                                <div class="btnStyle">
+                                    <i class="uil uil-search" id="submitBtn"></i>
+                                    <div class="btnPartition"></div>
+                                    <i class="uil uil-location-point" id="currentLocation"></i>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div>
+                            <div class="temperature-info" id="temperature-info">
+                                <div class="first-part">
+                                    <p id="local-time-day-date"></p>
+                                </div>
+                                <div class="second-part">
+                                    <div class="first-subpart">
+                                        <p id="city-name">Weather Updates Here🙂</p>
+                                        <p id="description" class="description data-hide">Cloudy</p>
+                                    </div>
+                                    
+                                    <div class="sub-part data-hide">
+                                        <div class="icon">
+                                            <img id="temp-icon" src="" />
+                                        </div>
+                                        <p id="celcius"><span id="temp-val"></span>&#176;C</p>
+                                        <div class="temp-details">
+                                            <div>
+                                                <i class="uil uil-temperature-three-quarter"></i>
+                                                Real feel: <span id="real-feel"></span>&#176;C
+                                            </div>
+                                            <div>
+                                                <i class="uil uil-tear"></i>
+                                                Humidity: <span id="humidity"></span>%
+                                            </div>
+                                            <div>
+                                                <i class="uil uil-wind"></i>
+                                                Wind: <span id="wind-speed"></span> km/h
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rise-set data-hide">
+                                        <p><i class="uil uil-sun"></i>
+                                        Rise: <span id="sun-rise"></span> AM</p> 
+                                        <p>|</p> 
+                                        <p><i class="uil uil-sunset"></i>
+                                        Set: <span id="sun-set"></span> PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="second-part">
-                        <p id="city-name">Weather Updates 🙂</p>
-                        <div class="sub-part data-hide">
-                            <p id="celcius"><span id="temp-val">22</span><sup>o</sup>C</p>
-                            <p id="temp-icon"><i class="fa fa-cloud"></i></p>
+                    <!-- right div -->
+                    <div class="col-md-6 col-12 weather-right">
+                        
+                        <div class="weather-right-side">
+                            <div class="forecast">
+                                <p>HOURLY FORECAST</p>
+                            </div>
+                            <div class="hourly-container" id="hourly-forecast">
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                            </div>
+
+
+                            <div class="forecast">
+                                <p>DAILY FORECAST</p>
+                            </div>
+                            <div class="hourly-container" id="daily-forecast">
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                                <div class="dailyHourly-forecast">
+                                    <p>--</p>
+                                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weatherIcon" class="w-icon">
+                                    <p>--</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -39,48 +149,34 @@
     <!-- Footer -->
     {{>footer}}
 
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {{!-- Script For API Access --}}
     <script src="js/main.js"></script>
 
-    {{!-- Script For Day Date Month Access--}}
-    <script>
-        const day = document.getElementById('day-name');
-        const getCurrentDay = () => {
-            var weekday = new Array(7);
-            weekday[0] = "SUN";
-            weekday[1] = "MON";
-            weekday[2] = "TUE";
-            weekday[3] = "WED";
-            weekday[4] = "THU";
-            weekday[5] = "FRI";
-            weekday[6] = "SAT";
+     <script>
+        const timeCurrent = document.getElementById('currentTime');
 
-            let currentTime = new Date();
-            let day = weekday[currentTime.getDay()];
-            return day;
-        };
-        day.innerText = getCurrentDay();
-        
-        var months = [
-            "JAN",
-            "FEB",
-            "MAR",
-            "APR",
-            "MAY",
-            "JUN",
-            "JUL",
-            'AUG',
-            "SEP",
-            "OCT",
-            "NOV",
-            "DEC"
-        ];
-        const dateMonth = document.getElementById('date')
-        const today = new Date();
-        const date = today.getDate();
-        const month = months[today.getMonth()];
+        setInterval(() => {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
 
-        dateMonth.innerText = `${date} ${month}`;
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            var hrIn12Hr = hours >= 13 ? hours % 12 : hours;
+            var hours = hrIn12Hr < 10 ? '0' + hrIn12Hr : hrIn12Hr;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            var strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+
+            timeCurrent.innerText = strTime;
+        }, 1000);
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+
 </body>
 </html>
