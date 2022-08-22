@@ -280,7 +280,7 @@ body {
     margin: auto;
     margin-top: 5rem;
     min-height: 20rem;
-    background: #cd8f6e;
+    background: #d2845a;
     border-radius: 1rem;
     color: var(--std-color);
 }
@@ -452,8 +452,6 @@ footer p {
         font-size: 1.2rem;
         border-radius: 1rem;
         padding: 0.5rem 1rem;
-        outline: none;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.05) 0px 2px 5px;
     }
     
     .main_header_right {
@@ -490,8 +488,6 @@ footer p {
         font-size: 1.2rem;
         border-radius: 1rem;
         padding: 0.5rem 1rem;
-        outline: none;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.05) 0px 2px 5px;
     }
     
     /* 404 Error Page */
@@ -672,8 +668,6 @@ footer p {
         height: auto;
         margin-top: 5rem;
     }
-
-    
 
     /* Future Forecast */
     .weather-right {

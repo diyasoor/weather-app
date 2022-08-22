@@ -111,7 +111,7 @@ const currentInfo = async(event) => {
             windSpeed.innerText = parseInt(arrayData[0].wind.speed);
             description.innerText = arrayData[0].weather[0].description;
             
-            tempIcon.src = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+            tempIcon.src = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
 
             // Endpoint Onecall
             let DH_URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely,alerts&appid=${API_KEY}`;
@@ -124,11 +124,11 @@ const currentInfo = async(event) => {
 
             const sunRiseValue = await timeAPICall(lat, lon, sunrise);
             const sunSetValue = await timeAPICall(lat, lon, sunset);
-
+                
             sunRise.innerText = `${sunRiseValue.slice(11, 16)}`;
             sunSet.innerText = `${sunSetValue.slice(11, 16)}`;
 
-            let time_url = `http://worldtimeapi.org/api/timezone/${timezone}`;
+            let time_url = `https://worldtimeapi.org/api/timezone/${timezone}`;
             const time_response = await fetch(time_url);
             var timeData = await time_response.json();
 
@@ -153,7 +153,7 @@ const currentInfo = async(event) => {
                 hourlyForcast += `
                 <div class="dailyHourly-forecast">
                     <p>${(nextHr < 10 ? '0' + nextHr : nextHr) + ':' + '00'}</p>
-                    <img src="http://openweathermap.org/img/wn/${hr.weather[0].icon}@2x.png" alt="weatherIcon" class="w-icon">
+                    <img src="https://openweathermap.org/img/wn/${hr.weather[0].icon}@2x.png" alt="weatherIcon" class="w-icon">
                     <p>${parseInt(hr.temp)}&#176;C</p>
                 </div>
                 `
@@ -167,7 +167,7 @@ const currentInfo = async(event) => {
                 dailyForcast += `
                 <div class="dailyHourly-forecast">
                     <p>${window.moment(day.dt*1000).format('ddd').toUpperCase()}</p>
-                    <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weatherIcon" class="w-icon">
+                    <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weatherIcon" class="w-icon">
                     <p>${parseInt(day.temp.day)}&#176;C</p>
                 </div>
                 `
@@ -223,7 +223,7 @@ const getInfo = async(event) => {
             windSpeed.innerText = parseInt(arrayData[0].wind.speed);
             description.innerText = arrayData[0].weather[0].description;
 
-            tempIcon.src = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+            tempIcon.src = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
 
             const latitude = arrayData[0].coord.lat;
             const longitude = arrayData[0].coord.lon;
@@ -243,7 +243,7 @@ const getInfo = async(event) => {
 
             let {timezone} = DH_data;
 
-            let time_url = `http://worldtimeapi.org/api/timezone/${timezone}`;
+            let time_url = `https://worldtimeapi.org/api/timezone/${timezone}`;
             const time_response = await fetch(time_url);
             var timeData = await time_response.json();
 
@@ -268,7 +268,7 @@ const getInfo = async(event) => {
                 hourlyForcast += `
                 <div class="dailyHourly-forecast">
                     <p>${(nextHr < 10 ? '0' + nextHr : nextHr) + ':' + '00'}</p>
-                    <img src="http://openweathermap.org/img/wn/${hr.weather[0].icon}@2x.png" alt="weatherIcon" class="w-icon">
+                    <img src="https://openweathermap.org/img/wn/${hr.weather[0].icon}@2x.png" alt="weatherIcon" class="w-icon">
                     <p>${parseInt(hr.temp)}&#176;C</p>
                 </div>
                 `
@@ -282,7 +282,7 @@ const getInfo = async(event) => {
                 dailyForcast += `
                 <div class="dailyHourly-forecast">
                     <p>${window.moment(day.dt*1000).format('ddd').toUpperCase()}</p>
-                    <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weatherIcon" class="w-icon">
+                    <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weatherIcon" class="w-icon">
                     <p>${parseInt(day.temp.day)}&#176;C</p>
                 </div>
                 `
